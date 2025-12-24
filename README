@@ -1,0 +1,7 @@
+
+This is to build a Singularity image to run Open WebUI, with Ollama. Rocky Linux 9.
+
+
+```
+singularity build --fakeroot open-webui-rocky9.sif  open-webui.def
+```
