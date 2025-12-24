@@ -6,8 +6,8 @@ From: rockylinux:9
     Version 0.1.0
 
 %post
-    # Install Python3.11, required by Open WebUI. Set alternatives for python
-    # to point default to Python3.11.
+    # Install Python3.12, required by Open WebUI. Set alternatives for python
+    # to point default to Python3.12.
     # Rocky Linux 9 has Python 3.9
     yum -y install python3.12 python3-pip
     alternatives --list
