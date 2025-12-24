@@ -1,0 +1,28 @@
+Bootstrap: docker
+From: rockylinux:9
+
+%labels
+    Maintainer Feng Zhang <prod.feng@gmail.com>
+    Version 0.1.0
+
+%post
+    # Install Python3.11, required by Open WebUI. Set alternatives for python
+    # to point default to Python3.11.
+    # Rocky Linux 9 has Python 3.9
+    yum -y install python3.12 python3-pip
+    alternatives --list
+    alternatives --install /usr/local/bin/python python /usr/bin/python3.12 90
+    alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.12 90
+    #which python
+    python --version
+    python -m ensurepip --upgrade
+    python -m pip install open-webui pysqlite3-binary
+    #Force Chromadb to use COLAB way to use pysqlite, version>3.35
+    mkdir  -p /usr/local/lib/python3.12/site-packages/google/colab
+
+%environment
+    export PYTHONUNBUFFERED=1
+    export PYTHONDONTWRITEBYTECODE=1
+
+%runscript
+    exec  "$@"
