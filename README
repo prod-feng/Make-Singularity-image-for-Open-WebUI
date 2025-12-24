@@ -1,5 +1,5 @@
 
-This is to build a Singularity image to run Open WebUI, with Ollama. Rocky Linux 9.
+This is to build a Singularity image to run Open WebUI, with Ollama. Rocky Linux 9, singularity-ce version 4.3.2-1.el9. Python 12.
 
 1.Build:
 
